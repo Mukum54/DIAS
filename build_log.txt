@@ -1,0 +1,155 @@
+
+> air-diass@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+  - Environments: .env
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+
+Failed to compile.
+
+./app/[locale]/(admin)/admin/vehicules/page.tsx
+28:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+31:58  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/[locale]/(public)/diass-auto/[id]/page.tsx
+33:44  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+37:90  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+43:8  Warning: React Hook useEffect has a missing dependency: 'fetchVehicle'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+89:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+158:47  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/[locale]/(public)/diass-auto/laverie/page.tsx
+52:60  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/[locale]/(public)/diass-auto/page.tsx
+23:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+33:8  Warning: React Hook useEffect has a missing dependency: 'fetchVehicles'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/[locale]/(public)/reservation/location-vehicules/page.tsx
+43:44  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+65:60  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/[locale]/(staff)/agent/bagages/page.tsx
+41:60  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+52:35  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+109:85  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+140:54  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+154:68  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+156:92  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+157:82  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+158:88  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+161:76  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+209:76  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+319:72  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/[locale]/admin/OverviewCharts.tsx
+19:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+20:23  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/[locale]/admin/contenu/page.tsx
+418:37  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/[locale]/admin/reservations/page.tsx
+15:75  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+24:43  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+29:62  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+30:47  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+31:45  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+69:47  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/[locale]/auth/login/page.tsx
+258:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/[locale]/espace-client/bagages/page.tsx
+121:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/[locale]/espace-client/page.tsx
+21:75  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+36:35  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+43:43  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+51:13  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+53:52  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+55:13  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+58:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+59:34  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+126:75  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+153:47  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/[locale]/espace-client/reservations/page.tsx
+25:35  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+31:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+36:61  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/[locale]/espace-client/vehicules/page.tsx
+57:37  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/[locale]/services/[slug]/page.tsx
+88:20  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+92:50  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+145:49  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/api/auth/register/route.ts
+41:69  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/api/baggage/[id]/status/route.ts
+41:86  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+47:13  Error: 'history' is never reassigned. Use 'const' instead.  prefer-const
+61:27  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/api/baggage/route.ts
+17:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/api/baggage/track/[trackingId]/route.ts
+23:15  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/api/offerings/route.ts
+13:45  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/api/reservations/route.ts
+54:45  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+59:58  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+83:51  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+84:66  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/api/vehicles/route.ts
+14:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./components/baggage/TrackingUI.tsx
+21:48  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+41:37  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+130:71  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+141:49  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./components/shared/ImageUploader.tsx
+131:8  Warning: React Hook useEffect has a missing dependency: 'onUploadComplete'. Either include it or remove the dependency array. If 'onUploadComplete' changes too often, find the parent component that defines it and wrap that definition in useCallback.  react-hooks/exhaustive-deps
+148:25  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/shared/StatusBadge.tsx
+18:32  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+35:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+37:64  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+38:69  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+39:61  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./components/shared/VehicleCard.tsx
+22:14  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+23:13  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+35:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./lib/auth.ts
+73:26  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+80:39  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+87:34  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+88:34  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./lib/env.ts
+29:51  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./lib/prisma.ts
+20:44  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules

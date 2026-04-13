@@ -1,0 +1,457 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── AIR DIASS Brand Color System ── */
+
+    /* Primary greens */
+    --color-forest: #0a2a0a;
+    --color-green-deep: #1a4a1a;
+    --color-green-action: #3d7a18;
+    --color-green-bright: #7ab648;
+    --color-green-lime: #a8d878;
+    --color-green-mist: #d4f0a0;
+
+    /* Olive series */
+    --color-olive-dark: #3d4a1a;
+    --color-olive-mid: #6b7a2a;
+    --color-olive-light: #c8d888;
+    --color-olive-pale: #eef4cc;
+
+    /* Blue-teal (trust / info) */
+    --color-blue-deep: #1a3a4a;
+    --color-blue-mid: #2a6a8a;
+    --color-blue-light: #7ac0d8;
+
+    /* Neutrals */
+    --color-night: #080f08;
+    --color-charcoal: #141f14;
+    --color-surface: #1a2a1a;
+    --color-muted-bg: #2a3d2a;
+    --color-text-primary: #e8f4d0;
+    --color-text-muted: #7aaa58;
+    --color-text-faint: #4a7a3a;
+
+    /* Semantic */
+    --color-success: #3d7a18;
+    --color-warning: #8a7a18;
+    --color-danger: #7a1818;
+    --color-danger-text: #e87878;
+
+    /* ── shadcn/Tailwind mappings (dark default) ── */
+    --background: 120 51% 9%;
+    /* ~#141f14 charcoal */
+    --foreground: 82 63% 88%;
+    /* ~#e8f4d0 text-primary */
+
+    --card: 120 47% 12%;
+    /* ~#1a2a1a surface */
+    --card-foreground: 82 63% 88%;
+
+    --popover: 120 47% 12%;
+    --popover-foreground: 82 63% 88%;
+
+    --primary: 97 64% 29%;
+    /* ~#3d7a18 green-action */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 75 47% 20%;
+    /* ~#3d4a1a olive-dark */
+    --secondary-foreground: 80 50% 77%;
+    /* ~#c8d888 olive-light */
+
+    --muted: 105 19% 20%;
+    /* ~#2a3d2a muted-bg */
+    --muted-foreground: 96 32% 51%;
+    /* ~#7aaa58 text-muted */
+
+    --accent: 93 44% 50%;
+    /* ~#7ab648 green-bright */
+    --accent-foreground: 120 62% 10%;
+
+    --destructive: 0 55% 28%;
+    /* ~#7a1818 danger */
+    --destructive-foreground: 0 67% 68%;
+    /* ~#e87878 danger-text */
+
+    --border: 110 18% 20%;
+    /* ~#2a3d2a */
+    --input: 110 18% 20%;
+    --ring: 93 50% 65%;
+    /* ~#a8d878 green-lime */
+
+    /* Border radius scale */
+    --radius: 0.875rem;
+    /* 14px — card default */
+    --radius-sm: 0.375rem;
+    /* 6px  — badges */
+    --radius-md: 0.625rem;
+    /* 10px — inputs/buttons */
+    --radius-lg: 1.25rem;
+    /* 20px — panels */
+    --radius-xl: 1.75rem;
+    /* 28px — hero */
+  }
+
+  .light {
+    --background: 84 67% 96%;
+    /* olive-pale */
+    --foreground: 120 51% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 120 51% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 51% 9%;
+
+    --primary: 97 64% 29%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 80 50% 77%;
+    /* olive-light */
+    --secondary-foreground: 120 62% 10%;
+
+    --muted: 80 50% 77%;
+    --muted-foreground: 75 47% 30%;
+
+    --accent: 93 44% 50%;
+    --accent-foreground: 120 62% 10%;
+
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 84 38% 75%;
+    --input: 84 38% 75%;
+    --ring: 93 50% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+    line-height: 1.7;
+  }
+
+  /* Typography scale */
+  h1,
+  h2,
+  .font-display {
+    font-family: var(--font-syne), sans-serif;
+    color: var(--color-text-primary);
+  }
+
+  .font-mono,
+  .tracking-id,
+  .reference-number {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  .label,
+  .text-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    line-height: 1.25;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .text-muted {
+    color: var(--color-text-muted);
+  }
+
+  .text-faint {
+    color: var(--color-text-faint);
+  }
+}
+
+@layer utilities {
+
+  /* Runway grid background pattern */
+  .bg-runway-grid {
+    background-image:
+      linear-gradient(var(--color-muted-bg) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-muted-bg) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: center center;
+  }
+
+  /* Lime text for brand accents */
+  .text-lime {
+    color: var(--color-green-lime);
+  }
+
+  .text-action {
+    color: var(--color-green-action);
+  }
+
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+
+  .bg-charcoal {
+    background-color: var(--color-charcoal);
+  }
+
+  /* No box-shadow — depth via borders */
+  .border-bright {
+    border-color: var(--color-green-bright);
+  }
+
+  .border-action {
+    border-color: var(--color-green-action);
+  }
+}
+
+/* ── Custom Animations ── */
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(180px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(180px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  from {
+    transform: rotate(360deg) translateX(220px) rotate(-360deg);
+  }
+
+  to {
+    transform: rotate(0deg) translateX(220px) rotate(0deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.animate-orbit {
+  animation: orbit 20s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 25s linear infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s ease-in-out infinite;
+}
+
+.animate-count-up {
+  animation: count-up 0.4s cubic-bezier(0.0, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in-right 0.4s cubic-bezier(0.0, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-up {
+  animation: fade-in-up 0.4s cubic-bezier(0.0, 0, 0.2, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-orbit,
+  .animate-orbit-reverse,
+  .animate-pulse-ring,
+  .animate-count-up,
+  .animate-slide-in,
+  .animate-fade-up {
+    animation: none;
+  }
+}
+
+/* Interactive Element Standards */
+button,
+[role="button"] {
+  cursor: pointer;
+  transition: background-color 155ms ease-out,
+    color 155ms ease-out,
+    border-color 155ms ease-out,
+    transform 105ms ease-out,
+    box-shadow 155ms ease-out;
+}
+
+button:active,
+[role="button"]:active {
+  transform: scale(0.97);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-charcoal),
+    0 0 0 4px rgba(122, 182, 72, 0.6);
+}
+
+/* Input focus glow */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--color-green-lime) !important;
+  box-shadow: 0 0 0 4px rgba(168, 216, 120, 0.15);
+  background-color: var(--color-night) !important;
+}
+
+/* High-contrast border for forms */
+.form-input-high-contrast {
+  border-color: var(--color-muted-bg);
+  background-color: var(--color-surface);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input-high-contrast:hover {
+  border-color: var(--color-text-faint);
+  background-color: var(--color-night);
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg,
+      var(--color-surface) 25%,
+      var(--color-muted) 37%,
+      var(--color-surface) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+/* Sonner Custom Toasts */
+.toast-success {
+  border-color: var(--color-green-bright) !important;
+  background: var(--color-green-deep) !important;
+  color: var(--color-green-lime) !important;
+}
+
+.toast-error {
+  border-color: #6a2a2a !important;
+  background: #3a1a1a !important;
+  color: #e87878 !important;
+}
+
+.toast-warning {
+  border-color: #6a5a1a !important;
+  background: #3a3a0a !important;
+  color: #e8d878 !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted-bg);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-green-action);
+}

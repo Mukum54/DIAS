@@ -1,0 +1,315 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  CLIENT
+  AGENT
+  TECHNICIEN
+  ADMIN
+}
+
+enum DocumentType {
+  PASSEPORT
+  CNI
+}
+
+enum BaggageStatus {
+  PRIS_EN_CHARGE
+  EN_TRANSIT
+  EN_LIVRAISON
+  LIVRE
+  INCIDENT
+}
+
+enum ServiceType {
+  HOTEL
+  TRANSPORT
+  PARKING
+  BAGGAGE
+  RENTAL
+  WASH
+  GARAGE
+  SALES_INQUIRY
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum JobType {
+  VIDANGE
+  VISITE_TECHNIQUE
+  ENTRETIEN
+  LAVERIE
+  PIECES
+}
+
+enum JobStatus {
+  WAITING
+  IN_PROGRESS
+  DONE
+  BILLED
+}
+
+enum BillingCycle {
+  MONTHLY
+  WEEKLY
+  PER_TRIP
+}
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  passwordHash  String?
+  role          Role     @default(CLIENT)
+  firstName     String
+  lastName      String
+  phone         String?
+  preferredLang String   @default("FR")
+  companyId     String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  consentGiven  Boolean  @default(false)
+  consentDate   DateTime?
+
+  company       Company?       @relation(fields: [companyId], references: [id])
+  reservations  Reservation[]
+  passengers    Passenger[]
+  notifications Notification[]
+  auditLogs     AuditLog[]
+}
+
+model Passenger {
+  id              String      @id @default(cuid())
+  userId          String?
+  firstName       String
+  lastName        String
+  phone           String?
+  documentType    DocumentType
+  documentNumber  String?     // Highly recommended to be encrypted at rest
+  nationality     String
+  flightNumber    String?
+  registrationRef String      @unique // auto-generated
+  agentId         String?
+  createdAt       DateTime    @default(now())
+
+  user            User?       @relation(fields: [userId], references: [id])
+  baggages        Baggage[]
+}
+
+model Baggage {
+  id                String        @id @default(cuid())
+  passengerId       String
+  trackingId        String        @unique // QR-ready
+  count             Int           @default(1)
+  weightKg          Float?
+  description       String?
+  status            BaggageStatus @default(PRIS_EN_CHARGE)
+  pickupAddress     String?
+  deliveryAddress   String?
+  currentLocation      String?
+  estimatedDelivery    DateTime?
+  assignedDriverId     String?
+  assignedDriverName   String?
+  assignedDriverPhone  String?
+  incidentDescription  String?
+  deliverySignatureData String?   // base64 canvas signature
+  deliveryPhotoUrl     String?
+  deliveredAt          DateTime?
+  clientNotified       Boolean   @default(false)
+  statusHistory        Json?         // Audit trail of status changes
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+
+  passenger         Passenger     @relation(fields: [passengerId], references: [id])
+}
+
+model ParkingSlot {
+  id                  String   @id @default(cuid())
+  slotNumber          String   @unique
+  zone                String
+  isOccupied          Boolean  @default(false)
+  vehicleRegistration String?
+  vehicleMake         String?
+  vehicleModel        String?
+  vehicleColor        String?
+  ownerName           String?
+  ownerPhone          String?
+  entryDate           DateTime?
+  expectedExitDate    DateTime?
+  actualExitDate      DateTime?
+  entryPhotos         Json?
+  conditionNotes      String?
+  maintenanceLogs     Json?
+  securityIncidents   Json?
+  clientId            String?
+
+  // Relations could be added here if linking to User/Vehicle models is desired, 
+  // but Section 4 defines it with flat fields for some operations.
+}
+
+model Reservation {
+  id              String            @id @default(cuid())
+  referenceNumber String            @unique
+  clientId        String?
+  clientName      String
+  clientPhone     String
+  clientEmail     String
+  serviceType     ServiceType
+  status          ReservationStatus @default(PENDING)
+  startDate       DateTime
+  endDate         DateTime?
+  details         Json?
+  amount          Float             @default(0)
+  isPaid          Boolean           @default(false)
+  invoiceId       String?
+  notes           String?
+  agentId         String?
+  createdAt       DateTime          @default(now())
+
+  client          User?             @relation(fields: [clientId], references: [id])
+}
+
+model Vehicle {
+  id                 String   @id @default(cuid())
+  type               String   // RENTAL|FOR_SALE|FLEET_RENTAL|FLEET_INTERNAL
+  category           String?  // Berline|SUV|Minibus|Pick-up|Luxe
+  make               String
+  model              String
+  year               Int
+  mileage            Int
+  color              String
+  registrationNumber String   @unique
+  vin                String   @unique
+  pricePerDay        Float?
+  salePrice          Float?
+  isAvailable        Boolean  @default(true)
+  isFeatured         Boolean  @default(false)
+  photos             Json?
+  specs              Json?
+  currentRenterId    String?
+  lastWashDate       DateTime?
+  lastServiceDate    DateTime?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  rentalPeriods      RentalPeriod[]
+}
+
+model RentalPeriod {
+  id            String   @id @default(cuid())
+  vehicleId     String
+  reservationId String   @unique
+  startDate     DateTime
+  endDate       DateTime
+  status        String   @default("ACTIVE")
+  createdAt     DateTime @default(now())
+
+  vehicle       Vehicle  @relation(fields: [vehicleId], references: [id])
+}
+
+model GarageJob {
+  id             String    @id @default(cuid())
+  jobType        JobType
+  vehicleInfo    Json
+  clientId       String?
+  clientName     String
+  clientPhone    String
+  technicianId   String?
+  status         JobStatus @default(WAITING)
+  scheduledDate  DateTime?
+  completedDate  DateTime?
+  checklist      Json?
+  partsUsed      Json?
+  laborHours     Float?
+  totalAmount    Float?
+  notes          String?
+  isInternalFleet Boolean  @default(false)
+}
+
+model Part {
+  id                String   @id @default(cuid())
+  reference         String   @unique
+  name              String
+  category          String
+  brand             String
+  compatibleVehicles Json?
+  stockQty          Int      @default(0)
+  alertThreshold    Int      @default(5)
+  unitPrice         Float
+  supplier          String
+}
+
+model Company {
+  id             String       @id @default(cuid())
+  name           String
+  contactName    String
+  contactEmail   String
+  contactPhone   String
+  address        String
+  taxId          String
+  contractType   String
+  contractStart  DateTime
+  contractEnd    DateTime
+  billingCycle   BillingCycle @default(MONTHLY)
+  assignedRoutes Json?
+  notes          String?
+
+  employees      User[]
+}
+
+model Notification {
+  id            String   @id @default(cuid())
+  userId        String?
+  phone         String?
+  email         String?
+  channel       String   // SMS|EMAIL|PUSH
+  type          String
+  message       String
+  referenceId   String?
+  referenceType String?
+  sentAt        DateTime @default(now())
+  status        String   // SENT|FAILED
+
+  user          User?    @relation(fields: [userId], references: [id])
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String
+  action     String
+  entity     String
+  entityId   String
+  ipAddress  String?
+  userAgent  String?
+  timestamp  DateTime @default(now())
+  details    Json?
+
+  user       User     @relation(fields: [userId], references: [id])
+}
+
+model ServiceOffering {
+  id            String      @id @default(cuid())
+  serviceType   ServiceType
+  name          String
+  description   String
+  price         Float
+  priceUnit     String      @default("XOF") // XOF, per_day, per_night, per_trip
+  imageUrl      String?
+  capacity      Int?        // e.g. room capacity, vehicle seats
+  duration      String?     // e.g. "2h", "1 night"
+  features      Json?       // array of feature strings
+  isAvailable   Boolean     @default(true)
+  sortOrder     Int         @default(0)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}

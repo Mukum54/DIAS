@@ -1,0 +1,94 @@
+{
+    "Index": {
+        "title": "Services Aéroportuaires & Automobiles Premium",
+        "description": "L'excellence au service de votre voyage et de votre mobilité en Afrique de l'Ouest.",
+        "hero_badge": "L'Excellence Aéroportuaire",
+        "hero_title_start": "Voyagez avec ",
+        "hero_title_highlight": "élégance",
+        "hero_title_end": " et tranquillité d'esprit",
+        "hero_subtitle": "La référence premium en Afrique de l'Ouest pour vos services aéroportuaires et l'assistance automobile.",
+        "book_now": "Réserver maintenant",
+        "track_baggage": "Suivre mes bagages"
+    },
+    "Nav": {
+        "home": "Accueil",
+        "services": "Nos Services",
+        "booking": "Réserver",
+        "tracking": "Suivi Bagages",
+        "login": "Connexion",
+        "dashboard": "Tableau de Bord",
+        "logout": "Déconnexion"
+    },
+    "Common": {
+        "back": "Retour",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
+        "delete": "Supprimer",
+        "edit": "Modifier",
+        "loading": "Chargement...",
+        "error": "Une erreur est survenue",
+        "success": "Opération réussie",
+        "confirm": "Confirmer",
+        "search": "Rechercher",
+        "filter": "Filtrer",
+        "all": "Tout voir",
+        "print": "Imprimer",
+        "download": "Télécharger"
+    },
+    "Auth": {
+        "login_title": "Accès Sécurisé",
+        "login_subtitle": "Connectez-vous à votre espace AIR DIASS",
+        "register_title": "Devenir Membre VIP",
+        "register_subtitle": "Rejoignez l'élite du service Aéroport & Auto",
+        "email": "E-mail Professionnel",
+        "password": "Mot de passe",
+        "confirm_password": "Confirmer mot de passe",
+        "firstname": "Prénom",
+        "lastname": "Nom",
+        "phone": "Mobile (Direct)",
+        "consent": "Je consens à la collecte de mes données personnelles conformément au RGPD.",
+        "btn_login": "S'authentifier",
+        "btn_register": "Créer mon compte",
+        "forgot_password": "Oublié ?",
+        "no_account": "Pas encore de compte ?",
+        "has_account": "Déjà inscrit ?",
+        "verify_email_title": "Vérifiez votre E-mail",
+        "verify_email_desc": "Un lien de validation a été envoyé à votre adresse."
+    },
+    "Agent": {
+        "hub_title": "Mission Control",
+        "hub_subtitle": "Hub AIBD Dakar • Terminal 1 Reception",
+        "registration": "Enregistrement",
+        "parking": "Gestion Parking",
+        "baggage": "Suivi Bagages",
+        "transport": "Dispatch Transport",
+        "live_feed": "Flux Temps Réel",
+        "security_status": "Status Sécurité"
+    },
+    "Garage": {
+        "hub_title": "Atelier Performance",
+        "hub_subtitle": "DIASS AUTO HQ • Maintenance",
+        "kanban": "Tableau Kanban",
+        "inventory": "Stock Pièces",
+        "active_jobs": "Jobs Prioritaires",
+        "low_stock": "Stock Critique"
+    },
+    "Client": {
+        "dashboard": "Mon Espace VIP",
+        "reservations": "Mes Réservations",
+        "baggages": "Mes Bagages",
+        "vehicules": "Mes Véhicules",
+        "documents": "Mes Documents",
+        "tracking_id": "ID de Suivi",
+        "status": "Statut",
+        "location": "Localisation",
+        "last_update": "Dernière mise à jour"
+    },
+    "Footer": {
+        "rights": "Tous droits réservés © 2024 AIR DIASS",
+        "legal": "Mentions Légales",
+        "privacy": "Confidentialité (RGPD)",
+        "contact": "Contactez-nous",
+        "address": "Aéroport International Blaise Diagne, Dakar, Sénégal"
+    }
+}
